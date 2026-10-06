@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ollama Image Studio / Ollama 本地生图工作台</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Local AI Image Pipeline / 本地 AI 生图链路</p>
+            <h1>Ollama Image Studio<br /><span>Ollama 本地生图工作台</span></h1>
+          </div>
+          <button id="refreshStatus" class="icon-button" title="Refresh status / 刷新状态" aria-label="Refresh status / 刷新状态">
+            ↻
+          </button>
+        </header>
+
+        <section class="status-strip" id="statusStrip">
+          <div>
+            <span class="label">Ollama</span>
+            <strong id="ollamaState">Checking / 检查中</strong>
+          </div>
+          <div>
+            <span class="label">Image Model / 图像模型</span>
+            <strong id="imageModelState">Loading / 读取中</strong>
+          </div>
+          <div>
+            <span class="label">Output / 输出</span>
+            <strong id="outputState">Ready / 就绪</strong>
+          </div>
+        </section>
+
+        <form id="generateForm" class="generator">
+          <label class="field field-wide">
+            <span>Prompt / 提示词</span>
+            <textarea id="prompt" rows="5" placeholder="例如：生一个细胞图片 / Example: Generate an animal cell image">生一个细胞图片</textarea>
+          </label>
+
+          <div class="grid">
+            <label class="field">
+              <span>Ollama Model / Ollama 模型</span>
+              <select id="ollamaModel"></select>
+            </label>
+            <label class="field">
+              <span>Image Model / 图像模型</span>
+              <input id="imageModel" value="local-cell-renderer" />
+            </label>
+            <label class="field">
+              <span>Style / 风格</span>
+              <select id="style">
+                <option value="scientific">Scientific / 科学示意</option>
+                <option value="microscope">Microscope / 显微镜质感</option>
+                <option value="medical 3D render">Medical 3D / 医学 3D</option>
+                <option value="educational diagram">Educational / 教学图</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Seed / 随机种子</span>
+              <input id="seed" type="number" placeholder="Auto / 自动" />
+            </label>
+          </div>
+
+          <div class="controls">
+            <label class="check">
+              <input id="useOllama" type="checkbox" checked />
+              <span>Use Ollama to improve prompt / 使用 Ollama 优化提示词</span>
+            </label>
+            <label class="field compact">
+              <span>Steps / 步数</span>
+              <input id="steps" type="number" min="1" max="50" value="6" />
+            </label>
+            <button type="submit" id="generateButton">Generate Image / 生成图片</button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="preview">
+        <div class="image-frame" id="imageFrame">
+          <div class="empty">
+            <strong>No image yet / 还没有图片</strong>
+            <span>Generated PNG will appear here / 生成的 PNG 会显示在这里</span>
+          </div>
+        </div>
+        <section class="result">
+          <h2>Result / 结果</h2>
+          <p id="message">Waiting for generation / 等待生成</p>
+          <dl>
+            <dt>Prompt Used / 实际提示词</dt>
+            <dd id="promptUsed">-</dd>
+            <dt>Saved File / 保存文件</dt>
+            <dd id="savedFile">-</dd>
+          </dl>
+        </section>
+      </aside>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

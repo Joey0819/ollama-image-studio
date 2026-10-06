@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.codex.ollama-image-bridge</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/chengneng/Documents/Codex/2026-06-21/sol/work/ollama-image-studio/.venv/bin/python</string>
+    <string>/Users/chengneng/Documents/Codex/2026-06-21/sol/work/ollama-image-studio/scripts/ollama_chat_image_bridge.py</string>
+    <string>--watch</string>
+    <string>--interval</string>
+    <string>4</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>WorkingDirectory</key>
+  <string>/Users/chengneng/Documents/Codex/2026-06-21/sol/work/ollama-image-studio</string>
+  <key>StandardOutPath</key>
+  <string>/Users/chengneng/Documents/Codex/2026-06-21/sol/work/ollama-image-studio/app/outputs/logs/launchd-ollama-image-bridge.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/chengneng/Documents/Codex/2026-06-21/sol/work/ollama-image-studio/app/outputs/logs/launchd-ollama-image-bridge.err.log</string>
+</dict>
+</plist>
